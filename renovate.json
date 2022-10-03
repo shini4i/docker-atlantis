@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":semanticCommits"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ENV TRANSCRYPT_VERSION=(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "elasticdog/transcrypt",
+      "extractVersionTemplate": ".* v(?<version>.*)$"
+    }
+  ],
+  "automerge": true,
+  "platformAutomerge": true
+}
