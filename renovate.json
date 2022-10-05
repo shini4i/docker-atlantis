@@ -11,6 +11,12 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "elasticdog/transcrypt",
       "extractVersionTemplate": "v(?<version>.*)$"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ghcr.io/runatlantis/atlantis:(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "runatlantis/atlantis"
     }
   ],
   "automerge": true,

@@ -1,6 +1,4 @@
-ARG ATLANTIS_VERSION
-
-FROM ghcr.io/runatlantis/atlantis:$ATLANTIS_VERSION
+FROM ghcr.io/runatlantis/atlantis:v0.19.8
 
 ENV TRANSCRYPT_VERSION=2.2.0
 
