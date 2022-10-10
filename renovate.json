@@ -20,5 +20,6 @@
     }
   ],
   "automerge": true,
+  "stabilityDays": 1,
   "platformAutomerge": true
 }
