@@ -21,5 +21,6 @@
   ],
   "automerge": true,
   "stabilityDays": 1,
+  "prCreation": "not-pending",
   "platformAutomerge": true
 }
