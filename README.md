@@ -1,7 +1,7 @@
 # atlantis
-A custom atlantis docker image with built-in transcrypt.
+A custom atlantis docker image with built-in [transcrypt](https://github.com/elasticdog/transcrypt) and [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config).
 ## Usage example
-Custom workflow example
+Custom workflow example utilizing transcrypt
 ```yaml
 workflows:
   terraform-transcrypt:
