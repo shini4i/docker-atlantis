@@ -21,6 +21,13 @@
     },
     {
       "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ENV TERRAGRUNT_VERSION=(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "gruntwork-io/terragrunt",
+      "extractVersionTemplate": "v(?<version>.*)$"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
       "matchStrings": ["ghcr.io/runatlantis/atlantis:(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "runatlantis/atlantis"
