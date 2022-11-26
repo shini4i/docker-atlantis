@@ -1,6 +1,17 @@
+<div align="center">
+
 # atlantis
-A custom atlantis docker image with built-in [transcrypt](https://github.com/elasticdog/transcrypt), [terragrunt](https://github.com/gruntwork-io/terragrunt) and [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config).
-## Usage example
+A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with built-in [transcrypt](https://github.com/elasticdog/transcrypt), [terragrunt](https://github.com/gruntwork-io/terragrunt) and [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/shini4i/docker-atlantis/Build%20and%20Publish?style=flat-square)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/shini4i/docker-atlantis/main?style=flat-square)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/shini4i/docker-atlantis?style=flat-square)
+
+<img src="https://raw.githubusercontent.com/runatlantis/atlantis/main/runatlantis.io/.vuepress/public/hero.png" alt="Showcase">
+</div>
+
+## Configuration example
+### Transcrypt
 Custom workflow example utilizing transcrypt:
 ```yaml
 workflows:
@@ -14,8 +25,8 @@ workflows:
       steps:
         - apply
 ```
-## Configuration
-Atlantis server config example utilizing terragrunt + terragrunt-atlantis-config:
+### Terragrunt
+Atlantis server configuration example utilizing terragrunt + terragrunt-atlantis-config:
 ```yaml
 repoConfig: |
   ---
