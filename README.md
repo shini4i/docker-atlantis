@@ -10,6 +10,11 @@ A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with b
 <img src="https://raw.githubusercontent.com/runatlantis/atlantis/main/runatlantis.io/.vuepress/public/hero.png" alt="Showcase">
 </div>
 
+## Download latest built image
+```bash
+docker pull ghcr.io/shini4i/atlantis:v0.20.1
+```
+
 ## Configuration example
 ### Transcrypt
 Custom workflow example utilizing transcrypt:

@@ -31,6 +31,12 @@
       "matchStrings": ["ghcr.io/runatlantis/atlantis:(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "runatlantis/atlantis"
+    },
+    {
+      "fileMatch": ["^README.md$"],
+      "matchStrings": ["docker pull ghcr.io/shini4i/atlantis:(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "runatlantis/atlantis"
     }
   ],
   "automerge": true,
