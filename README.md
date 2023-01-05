@@ -12,7 +12,7 @@ A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with b
 
 ## Download latest built image
 ```bash
-docker pull ghcr.io/shini4i/atlantis:v0.22.0
+docker pull ghcr.io/shini4i/atlantis:v0.22.1
 ```
 
 ## Configuration example
