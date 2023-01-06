@@ -43,11 +43,12 @@ repoConfig: |
       allow_custom_workflows: false
       pre_workflow_hooks:
         - run: terragrunt-atlantis-config generate --output atlantis.yaml --autoplan
-        - run: terragrunt run-all init -reconfigure -backend-config="username=$ATLANTIS_GITLAB_USER" -backend-config="password=$ATLANTIS_GITLAB_TOKEN"
   workflows:
     default:
       plan:
-        steps:
+        steps: 
+          # additional init step is required if you need to provide credentials for backend config
+          - run: terragrunt init -backend-config="username=$ATLANTIS_USER" -backend-config="password=$ATLANTIS_TOKEN"
           - run: terragrunt plan -input=false -out=$PLANFILE
           - run: terragrunt show -json $PLANFILE > $SHOWFILE
       apply:
