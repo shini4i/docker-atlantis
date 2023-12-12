@@ -1,4 +1,4 @@
-FROM ghcr.io/runatlantis/atlantis:v0.26.0
+FROM ghcr.io/runatlantis/atlantis:v0.27.0
 
 ENV TRANSCRYPT_VERSION=2.2.3
 ENV TERRAGRUNT_VERSION=0.53.8
