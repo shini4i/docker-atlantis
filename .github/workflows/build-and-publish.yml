@@ -30,10 +30,10 @@ jobs:
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Check if source image was changed
-        run: echo "FROM_CHANGED=$(git diff HEAD^:Dockerfile HEAD:Dockerfile | grep +FROM | wc -l | awk '{ print $1 }')" >> $GITHUB_ENV
+        run: echo "FROM_CHANGED=$(git diff HEAD^:Dockerfile HEAD:Dockerfile | grep '+FROM ghcr.io/runatlantis/atlantis' | wc -l | awk '{ print $1 }')" >> $GITHUB_ENV
 
       - name: Extract Atlantis version
-        run: echo "ATLANTIS_VERSION=$(grep FROM Dockerfile | awk -F'[:]' '{ print $2 }')" >> $GITHUB_ENV
+        run: echo "ATLANTIS_VERSION=$(grep 'FROM ghcr.io/runatlantis/atlantis' Dockerfile | awk -F'[:]' '{ print $2 }')" >> $GITHUB_ENV
 
       - name: Build image and push to GitHub Container Registry
         uses: docker/build-push-action@v5

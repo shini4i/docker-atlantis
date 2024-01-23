@@ -28,6 +28,13 @@
     },
     {
       "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ENV INFRACOST_VERSION=(?<currentValue>.*)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "infracost/infracost",
+      "extractVersionTemplate": "v(?<version>.*)$"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
       "matchStrings": ["ghcr.io/runatlantis/atlantis:(?<currentValue>.*)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "runatlantis/atlantis"
