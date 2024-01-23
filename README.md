@@ -1,7 +1,7 @@
 <div align="center">
 
 # atlantis
-A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with built-in [transcrypt](https://github.com/elasticdog/transcrypt), [terragrunt](https://github.com/gruntwork-io/terragrunt) and [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config)
+A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with built-in [infracost](https://github.com/infracost/infracost), [transcrypt](https://github.com/elasticdog/transcrypt), [terragrunt](https://github.com/gruntwork-io/terragrunt) and [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config)
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/shini4i/docker-atlantis/build-and-publish.yml?branch=main&style=flat-square)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/shini4i/docker-atlantis/main?style=flat-square)
