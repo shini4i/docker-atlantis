@@ -21,7 +21,7 @@ ADD https://github.com/infracost/infracost/releases/download/v${INFRACOST_VERSIO
 
 RUN tar xf /tmp/infracost-linux-amd64.tar.gz -C /usr/local/bin
 
-FROM ghcr.io/runatlantis/atlantis:v0.27.2
+FROM ghcr.io/runatlantis/atlantis:v0.27.3
 
 USER root
 
