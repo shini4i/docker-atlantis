@@ -34,14 +34,11 @@
       "extractVersionTemplate": "v(?<version>.*)$"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ghcr.io/runatlantis/atlantis:(?<currentValue>.*)"],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "runatlantis/atlantis"
-    },
-    {
-      "fileMatch": ["^README.md$"],
-      "matchStrings": ["docker pull ghcr.io/shini4i/atlantis:(?<currentValue>.*)"],
+      "fileMatch": ["^Dockerfile$", "^README.md$"],
+      "matchStrings": [
+        "ghcr.io/runatlantis/atlantis:(?<currentValue>.*)",
+        "docker pull ghcr.io/shini4i/atlantis:(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "runatlantis/atlantis"
     }
