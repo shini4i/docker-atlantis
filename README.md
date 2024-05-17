@@ -7,7 +7,7 @@ A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with b
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/shini4i/docker-atlantis/main?style=flat-square)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/shini4i/docker-atlantis?style=flat-square)
 
-<img src="https://raw.githubusercontent.com/runatlantis/atlantis/main/runatlantis.io/.vuepress/public/hero.png" alt="Showcase">
+<img src="https://raw.githubusercontent.com/runatlantis/atlantis/main/runatlantis.io/public/hero.png" alt="Showcase">
 </div>
 
 ## Download latest built image
