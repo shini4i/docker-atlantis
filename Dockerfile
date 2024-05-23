@@ -12,16 +12,14 @@ ADD https://raw.githubusercontent.com/elasticdog/transcrypt/v${TRANSCRYPT_VERSIO
 RUN curl -L -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 \
     && chmod +x /usr/local/bin/terragrunt
 
-RUN curl -L -o terragrunt-atlantis-config.tar.gz https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64.tar.gz \
-    && tar -xvf terragrunt-atlantis-config.tar.gz \
-    && mv terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64 /usr/local/bin/terragrunt-atlantis-config \
-    && rm terragrunt-atlantis-config.tar.gz && rm -rf terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64/
+RUN curl -L -o terragrunt-atlantis-config https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_amd64 \
+    && mv terragrunt-atlantis-config /usr/local/bin/terragrunt-atlantis-config
 
 ADD https://github.com/infracost/infracost/releases/download/v${INFRACOST_VERSION}/infracost-linux-amd64.tar.gz /tmp
 
 RUN tar xf /tmp/infracost-linux-amd64.tar.gz -C /usr/local/bin
 
-FROM ghcr.io/runatlantis/atlantis:v0.27.3
+FROM ghcr.io/runatlantis/atlantis:v0.28.1
 
 USER root
 
