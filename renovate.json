@@ -1,40 +1,64 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     ":semanticCommits"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV TRANSCRYPT_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV TRANSCRYPT_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "elasticdog/transcrypt",
       "extractVersionTemplate": "v(?<version>.*)$"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV TERRAGRUNT_ATLANTIS_CONFIG_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV TERRAGRUNT_ATLANTIS_CONFIG_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "transcend-io/terragrunt-atlantis-config",
       "extractVersionTemplate": "v(?<version>.*)$"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV TERRAGRUNT_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV TERRAGRUNT_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "gruntwork-io/terragrunt",
       "extractVersionTemplate": "v(?<version>.*)$"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV INFRACOST_VERSION=(?<currentValue>.*)"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV INFRACOST_VERSION=(?<currentValue>.*)"
+      ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "infracost/infracost",
       "extractVersionTemplate": "v(?<version>.*)$"
     },
     {
-      "fileMatch": ["^Dockerfile$", "^README.md$"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$",
+        "^README.md$"
+      ],
       "matchStrings": [
         "ghcr.io/runatlantis/atlantis:(?<currentValue>.*)",
         "docker pull ghcr.io/shini4i/atlantis:(?<currentValue>.*)"
@@ -44,7 +68,7 @@
     }
   ],
   "automerge": true,
-  "stabilityDays": 1,
+  "minimumReleaseAge": "1 day",
   "prCreation": "not-pending",
   "platformAutomerge": true
 }
