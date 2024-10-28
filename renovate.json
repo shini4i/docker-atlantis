@@ -69,8 +69,13 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["runatlantis/atlantis"],
-      "matchPaths": ["Dockerfile", "README.md"],
+      "matchPackageNames": [
+        "runatlantis/atlantis"
+      ],
+      "matchFileNames": [
+        "Dockerfile",
+        "README.md"
+      ],
       "groupName": "atlantis-version",
       "prConcurrentLimit": 1,
       "prCreation": "immediate"
