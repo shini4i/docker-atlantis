@@ -67,20 +67,6 @@
       "depNameTemplate": "runatlantis/atlantis"
     }
   ],
-  "packageRules": [
-    {
-      "matchPackageNames": [
-        "runatlantis/atlantis"
-      ],
-      "matchFileNames": [
-        "Dockerfile",
-        "README.md"
-      ],
-      "groupName": "atlantis-version",
-      "prConcurrentLimit": 1,
-      "prCreation": "immediate"
-    }
-  ],
   "automerge": true,
   "minimumReleaseAge": "1 day",
   "prCreation": "not-pending",
