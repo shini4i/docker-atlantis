@@ -4,6 +4,7 @@ ENV TRANSCRYPT_VERSION=2.3.0
 ENV TERRAGRUNT_VERSION=0.68.7
 ENV TERRAGRUNT_ATLANTIS_CONFIG_VERSION=1.19.0
 ENV INFRACOST_VERSION=0.10.39
+ENV ATLANTIS_EMOJI_GATE_VERSION=0.1.1
 
 RUN apk add --no-cache curl
 
@@ -19,6 +20,10 @@ ADD https://github.com/infracost/infracost/releases/download/v${INFRACOST_VERSIO
 
 RUN tar xf /tmp/infracost-linux-amd64.tar.gz -C /usr/local/bin
 
+ADD https://github.com/shini4i/atlantis-emoji-gate/releases/download/v${ATLANTIS_EMOJI_GATE_VERSION}/atlantis-emoji-gate_${ATLANTIS_EMOJI_GATE_VERSION}_linux_amd64.tar.gz /tmp
+
+RUN tar xf /tmp/atlantis-emoji-gate_${ATLANTIS_EMOJI_GATE_VERSION}_linux_amd64.tar.gz -C /usr/local/bin
+
 FROM ghcr.io/runatlantis/atlantis:v0.30.0
 
 USER root
@@ -29,5 +34,6 @@ COPY --from=BASE --chown=atlantis:atlantis --chmod=0700 /usr/local/bin/transcryp
 COPY --from=BASE --chown=atlantis:atlantis --chmod=0700 /usr/local/bin/terragrunt /usr/local/bin/terragrunt
 COPY --from=BASE --chown=atlantis:atlantis --chmod=0700 /usr/local/bin/terragrunt-atlantis-config /usr/local/bin/terragrunt-atlantis-config
 COPY --from=BASE --chown=atlantis:atlantis --chmod=0700 /usr/local/bin/infracost-linux-amd64 /usr/local/bin/infracost
+COPY --from=BASE --chown=atlantis:atlantis --chmod=0700 /usr/local/bin/atlantis-emoji-gate /usr/local/bin/atlantis-emoji-gate
 
 USER atlantis

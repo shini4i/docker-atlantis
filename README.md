@@ -1,7 +1,7 @@
 <div align="center">
 
 # atlantis
-A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with built-in [infracost](https://github.com/infracost/infracost), [transcrypt](https://github.com/elasticdog/transcrypt), [terragrunt](https://github.com/gruntwork-io/terragrunt) and [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config)
+A custom [atlantis](https://github.com/runatlantis/atlantis) docker image with built-in [infracost](https://github.com/infracost/infracost), [transcrypt](https://github.com/elasticdog/transcrypt), [terragrunt](https://github.com/gruntwork-io/terragrunt), [terragrunt-atlantis-config](https://github.com/transcend-io/terragrunt-atlantis-config) and [atlantis-emoji-gate](https://github.com/shini4i/atlantis-emoji-gate)
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/shini4i/docker-atlantis/build-and-publish.yml?branch=main&style=flat-square)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/shini4i/docker-atlantis/main?style=flat-square)
@@ -54,4 +54,23 @@ repoConfig: |
       apply:
         steps:
           - run: terragrunt apply -input=false $PLANFILE
+```
+
+### Atlantis-Emoji-Gate
+
+This setup is useful only for setups running with Gitlab CE. It replaces non-working mandatory approvals with custom emoji-based approvals:
+
+More info can be found [here](https://github.com/shini4i/atlantis-emoji-gate).
+
+```yaml
+workflows:
+  default:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - run: atlantis-emoji-gate
+        - apply
 ```

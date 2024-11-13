@@ -56,6 +56,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV ATLANTIS_EMOJI_GATE_VERSION=(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "shini4i/atlantis-emoji-gate",
+      "extractVersionTemplate": "v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "^Dockerfile$",
         "^README.md$"
       ],
