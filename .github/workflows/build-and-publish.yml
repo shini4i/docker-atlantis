@@ -39,6 +39,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/shini4i/atlantis:${{ env.ATLANTIS_VERSION }}
           push: true
