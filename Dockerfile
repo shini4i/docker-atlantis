@@ -27,7 +27,7 @@ ADD https://github.com/shini4i/atlantis-emoji-gate/releases/download/v${ATLANTIS
 
 RUN tar xf /tmp/atlantis-emoji-gate_${ATLANTIS_EMOJI_GATE_VERSION}_linux_${TARGETARCH}.tar.gz -C /usr/local/bin
 
-FROM ghcr.io/runatlantis/atlantis:v0.32.0
+FROM ghcr.io/runatlantis/atlantis:v0.33.0
 
 USER root
 
