@@ -1,4 +1,4 @@
-FROM alpine:3.22 as BASE
+FROM alpine:3.23 as BASE
 
 ARG TARGETARCH
 
