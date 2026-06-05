@@ -1,21 +1,21 @@
-FROM alpine:3.23 as BASE
+FROM alpine:3.23 AS BASE
 
 ARG TARGETARCH
 
-ENV TRANSCRYPT_VERSION=2.3.1
-ENV TERRAGRUNT_VERSION=0.96.0
+ENV TRANSCRYPT_VERSION=2.3.2
+ENV TERRAGRUNT_VERSION=1.0.7
 ENV TERRAGRUNT_ATLANTIS_CONFIG_VERSION=1.21.1
-ENV INFRACOST_VERSION=0.10.43
+ENV INFRACOST_VERSION=0.10.44
 ENV ATLANTIS_EMOJI_GATE_VERSION=0.4.0
 
 RUN apk add --no-cache curl
 
 ADD https://raw.githubusercontent.com/elasticdog/transcrypt/v${TRANSCRYPT_VERSION}/transcrypt /usr/local/bin/transcrypt
 
-RUN curl -L -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_${TARGETARCH} \
+RUN curl -fsSL --retry 3 --retry-all-errors -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_${TARGETARCH} \
  && chmod +x /usr/local/bin/terragrunt
 
-RUN curl -L -o terragrunt-atlantis-config https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_${TARGETARCH} \
+RUN curl -fsSL --retry 3 --retry-all-errors -o terragrunt-atlantis-config https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}/terragrunt-atlantis-config_${TERRAGRUNT_ATLANTIS_CONFIG_VERSION}_linux_${TARGETARCH} \
  && mv terragrunt-atlantis-config /usr/local/bin/terragrunt-atlantis-config
 
 ADD https://github.com/infracost/infracost/releases/download/v${INFRACOST_VERSION}/infracost-linux-${TARGETARCH}.tar.gz /tmp
@@ -27,7 +27,7 @@ ADD https://github.com/shini4i/atlantis-emoji-gate/releases/download/v${ATLANTIS
 
 RUN tar xf /tmp/atlantis-emoji-gate_${ATLANTIS_EMOJI_GATE_VERSION}_linux_${TARGETARCH}.tar.gz -C /usr/local/bin
 
-FROM ghcr.io/runatlantis/atlantis:v0.38.0
+FROM ghcr.io/runatlantis/atlantis:v0.43.0
 
 USER root
 
