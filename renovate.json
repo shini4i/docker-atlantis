@@ -79,6 +79,12 @@
       "depNameTemplate": "runatlantis/atlantis"
     }
   ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["runatlantis/atlantis"],
+      "groupName": "atlantis"
+    }
+  ],
   "automerge": true,
   "minimumReleaseAge": "1 day",
   "prCreation": "not-pending",
